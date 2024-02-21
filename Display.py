@@ -2,6 +2,9 @@ import ST7735 as TFT
 import Adafruit_GPIO.SPI as SPI
 from PIL import ImageFont
 from Setting import *
+import MongoDB
+
+mdb = MongoDB.MongoDB(dbHost, "Attendance","attendance")
 
 
 class Display:
@@ -52,4 +55,5 @@ class Display:
         self.displayText("Your", 5, 128/5*2, (255, 255, 255))
         self.displayText("Attendance", 5, 128/5*3, (255, 255, 255))
         self.displayText("Done!", 5, 128/5*4, (255, 255, 255))
+        mdb.attendanceMark(card)
         
