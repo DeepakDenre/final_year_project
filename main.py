@@ -2,6 +2,8 @@ from Setting import *
 from time import sleep
 import NFC
 import Display
+
+
 nfc = NFC.NFC()
 disp = Display.Display()
 
