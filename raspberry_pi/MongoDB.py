@@ -5,8 +5,14 @@ from Setting import *
 
 class MongoDB:
     def __init__(self, host, db, attendance, student):
-        self.driver1 = MongoClient(host % (username, password), server_api=ServerApi('1'))
-        self.driver2 = MongoClient(host % (username, password), server_api=ServerApi('1'))
+        notWorking = True
+        while notWorking:
+            try:
+                self.driver1 = MongoClient(host % (username, password), server_api=ServerApi('1'))
+                self.driver2 = MongoClient(host % (username, password), server_api=ServerApi('1'))
+                notWorking = False
+            except Exception as e:
+                pass
         try:
             self.driver1.admin.command('ping')
             print("You successfully connected to MongoDB! on %s database and collection %s" % (db,attendance))
@@ -24,12 +30,12 @@ class MongoDB:
             dateArrary = (self.Attendance.find_one({"card": card}))["date"]
             if datetime.today().strftime("%d-%m-%Y") not in dateArrary:
                 dateArrary.append(datetime.today().strftime("%d-%m-%Y"))
-                self.Attendance.update_one({"card": card}, {"$set": {"card": card, "date": dateArrary}}, upsert=True)
+                self.Attendance.update_one({"card": card}, {"$set": {"name": self.getName(card),"card": card, "date": dateArrary}}, upsert=True)
                 return True
             else:
                 return False
         except:
-            self.Attendance.insert_one({"card": card, "date": [datetime.today().strftime("%d-%m-%Y")]})
+            self.Attendance.insert_one({"name": self.getName(card),"card": card, "date": [datetime.today().strftime("%d-%m-%Y")]})
             return True
 
     def validateCard(self, card):
@@ -37,9 +43,6 @@ class MongoDB:
             return False
         else:
             return True
-    
-    def getAttendance(self, card):
-        return self.Attendance.find({"card": card})
 
     def getName(self, card):
         return self.student.find_one({"card": card})["name"]

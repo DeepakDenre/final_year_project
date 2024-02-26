@@ -42,10 +42,18 @@ class Display:
     def render(self):
         self.disp.display()
 
+    def lodingScreen(self):
+        print("Displaying Loading...")
+        self.clearDisplay(displayColor)
+        self.displayText("Connecting", 5, HEIGHT/4*1, (255, 255, 255))
+        self.displayText("to", 5, HEIGHT/4*2, (255, 255, 255))
+        self.displayText("database!...", 5, HEIGHT/4*3, (255, 255, 255))
+        self.render()
+
     def greeter(self):
         print("Displaying Greeter...")
         self.clearDisplay(displayColor)
-        self.displayText("Hi ", 50, HEIGHT/4*1, (255, 255, 255))
+        self.displayText("Hi", 50, HEIGHT/4*1, (255, 255, 255))
         self.displayText("Place Your", 10, HEIGHT/4*2, (255, 255, 255))
         self.displayText(" card", 30, HEIGHT/4*3, (255, 255, 255))
         self.render()
@@ -56,16 +64,15 @@ class Display:
         self.displayText(str(name).split(" ")[0], 5, HEIGHT/6*2, (255, 255, 255))
         self.displayText("Your", 5, HEIGHT/6*3, (255, 255, 255))
         self.displayText("Attendance", 5, HEIGHT/6*4, (255, 255, 255))
-        self.displayText("Done!", 5, HEIGHT/6*5, (255, 255, 255))
+        self.displayText("Marked!", 5, HEIGHT/6*5, (255, 255, 255))
 
     def InvalidCard(self):
         print("Displaying Card Not Found...")
         self.displayText("Invalid", 5, HEIGHT/3*1, (255, 255, 255))
         self.displayText("Card !", 5, HEIGHT/3*2, (255, 255, 255))
 
-    def cardAlready(self):
+    def attendanceAlready(self):
         print("Displaying Card Already...")
-        self.displayText("Card Already", 5, HEIGHT/5*1, (255, 255, 255))
-        self.displayText("Registered!", 5, HEIGHT/5*2, (255, 255, 255))
-        self.displayText("Please", 5, HEIGHT/5*3, (255, 255, 255))
-        self.displayText("Try Again", 5, HEIGHT/5*4, (255, 255, 255))
+        self.displayText("Attendance", 5, HEIGHT/4*1, (255, 255, 255))
+        self.displayText("Already", 5, HEIGHT/4*2, (255, 255, 255))
+        self.displayText("Marked!", 5, HEIGHT/4*3, (255, 255, 255))

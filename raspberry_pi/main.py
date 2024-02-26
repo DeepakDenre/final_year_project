@@ -5,10 +5,12 @@ import NFC
 import Display
 import MongoDB
 
-mdb = MongoDB.MongoDB(dbHost, "Attendance", "attendance", "student")
-
 nfc = NFC.NFC()
 disp = Display.Display()
+
+disp.lodingScreen()
+mdb = MongoDB.MongoDB(dbHost, "Attendance", "attendance", "student")
+
 
 if __name__ == "__main__":
     while running:
@@ -37,7 +39,7 @@ if __name__ == "__main__":
                     else:
 
                         # Display the attendance already done
-                        disp.cardAlready()
+                        disp.attendanceAlready()
                 except Exception as e:
                     print(e)
             else:
