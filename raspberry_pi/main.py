@@ -1,3 +1,4 @@
+#!/usr/bin/python3.9
 from Setting import *
 from time import sleep
 import NFC
