@@ -23,19 +23,30 @@ if __name__ == "__main__":
 
             # Check if the student is in the database
             if mdb.validateCard(card):
+
                 # Get the name of the student
                 name = mdb.getName(card)
                 try:
+
+                    # Add the attendance and check if it was successful
                     if mdb.addAttendance(card):
+
+                        # Display the attendance done
                         disp.attendanceDone(name)
                     else:
+
+                        # Display the attendance already done
                         disp.cardAlready()
                 except Exception as e:
                     print(e)
             else:
+
+                # Display the invalid card
                 disp.InvalidCard()
+            
+            # render the display
             disp.render()
-            sleep(1)
+            sleep(2)
         except KeyboardInterrupt:
             running = False
             disp.clearDisplay(displayColor)
