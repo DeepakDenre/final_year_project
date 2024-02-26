@@ -2,7 +2,7 @@ import ST7735 as TFT
 import Adafruit_GPIO.SPI as SPI
 from PIL import ImageFont
 from Setting import *
-import MongoDB
+import os
 
 class Display:
 
@@ -22,8 +22,10 @@ class Display:
         self.disp.begin()
         self.draw = self.disp.draw()
         try:
-            self.font = ImageFont.truetype("Comfortaa.ttf", fontSize)
+            print("Using "+str(os.path.dirname(__file__))+"/Comfortaa.ttf font file...")
+            self.font = ImageFont.truetype(str(os.path.dirname(__file__))+"/Comfortaa.ttf", fontSize)
         except:
+            print("Using default font file...")
             self.font = ImageFont.load_default(fontSize)
         self.clearDisplay(displayColor)
 
