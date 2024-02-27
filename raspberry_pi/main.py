@@ -9,12 +9,16 @@ nfc = NFC.NFC()
 disp = Display.Display()
 
 disp.lodingScreen()
-mdb = MongoDB.MongoDB(dbHost, "Attendance", "attendance", "student")
+mdb = MongoDB.MongoDB(dbHost, "userDB", "attendance", "students")
 
 
 if __name__ == "__main__":
     while running:
         try:
+            while not mdb.checkConnection():
+                disp.clearDisplay(displayColor)
+                disp.connectionError()
+                sleep(5)
             # Display the greeter
             disp.greeter()
             # Read the card

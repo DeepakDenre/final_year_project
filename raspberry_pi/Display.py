@@ -76,3 +76,10 @@ class Display:
         self.displayText("Attendance", 5, HEIGHT/4*1, (255, 255, 255))
         self.displayText("Already", 5, HEIGHT/4*2, (255, 255, 255))
         self.displayText("Marked!", 5, HEIGHT/4*3, (255, 255, 255))
+
+    def connectionError(self):
+        print("Displaying Connection Error...")
+        self.displayText("Connection", 5, HEIGHT/4*1, (255, 255, 255))
+        self.displayText("Error!", 5, HEIGHT/4*2, (255, 255, 255))
+        self.displayText("Retrying...", 5, HEIGHT/4*3, (255, 255, 255))
+        self.render()

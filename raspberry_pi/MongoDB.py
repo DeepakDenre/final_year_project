@@ -24,6 +24,14 @@ class MongoDB:
         self.db2 = self.driver2[db]
         self.Attendance = self.db1[attendance]
         self.student = self.db2[student]
+
+    def checkConnection(self):
+        try:
+            self.driver1.admin.command('ping')
+            self.driver2.admin.command('ping')
+            return True
+        except Exception:
+            return False
     
     def addAttendance(self, card):
         try:

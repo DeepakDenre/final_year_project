@@ -4,9 +4,9 @@ running = True
 
 #Database Configuration
 import urllib.parse
-username = urllib.parse.quote_plus('admin')
-password = urllib.parse.quote_plus('admin')
-dbHost = "mongodb+srv://%s:%s@attendance.onmby2p.mongodb.net/?retryWrites=true&w=majority"
+username = urllib.parse.quote_plus('guptammanish04')
+password = urllib.parse.quote_plus('Manish04')
+dbHost = "mongodb+srv://%s:%s@cluster0.eje4awb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 
 # Raspberry Pi configuration.
 DC = 24
