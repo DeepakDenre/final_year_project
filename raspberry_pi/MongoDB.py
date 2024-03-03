@@ -15,9 +15,9 @@ class MongoDB:
                 pass
         try:
             self.driver1.admin.command('ping')
-            print("You successfully connected to MongoDB! on %s database and collection %s" % (db,attendance))
+            print("You successfully connected to MongoDB! on %s database and collection %s\n" % (db,attendance))
             self.driver2.admin.command('ping')
-            print("You successfully connected to MongoDB! on %s databaseand collection %s" % (db,student))
+            print("You successfully connected to MongoDB! on %s databaseand collection %s\n" % (db,student))
         except Exception as e:
             print(e)
         self.db1 = self.driver1[db]

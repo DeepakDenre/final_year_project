@@ -22,11 +22,11 @@ class Display:
         self.disp.begin()
         self.draw = self.disp.draw()
         try:
-            print("Using "+str(os.path.dirname(__file__))+"/Comfortaa.ttf font file...")
-            self.font = ImageFont.truetype(str(os.path.dirname(__file__))+"/Comfortaa.ttf", fontSize)
+            print("Using "+str(os.path.dirname(__file__))+"/MOR.ttf font file...\n")
+            self.font = ImageFont.truetype(str(os.path.dirname(__file__))+"/MOR.ttf", fontSize)
         except:
-            print("Using default font file...")
-            self.font = ImageFont.load_default(fontSize)
+            print("Using default font file...\n")
+            self.font = ImageFont.load_default()
         self.clearDisplay(displayColor)
 
     # Clear the display
@@ -43,43 +43,48 @@ class Display:
         self.disp.display()
 
     def lodingScreen(self):
-        print("Displaying Loading...")
-        self.clearDisplay(displayColor)
-        self.displayText("Connecting", 5, HEIGHT/4*1, (255, 255, 255))
-        self.displayText("to", 5, HEIGHT/4*2, (255, 255, 255))
-        self.displayText("database!...", 5, HEIGHT/4*3, (255, 255, 255))
+        print("Displaying Loading...\n")
+        self.clearDisplay(color["blue"])
+        self.displayText("Connecting", 5, HEIGHT/3*0, color["black"])
+        self.displayText("to", 5, HEIGHT/3*1,  color["black"])
+        self.displayText("database!...", 5, HEIGHT/3*2, color["black"])
         self.render()
 
     def greeter(self):
-        print("Displaying Greeter...")
-        self.clearDisplay(displayColor)
-        self.displayText("Hi", 50, HEIGHT/4*1, (255, 255, 255))
-        self.displayText("Place Your", 10, HEIGHT/4*2, (255, 255, 255))
-        self.displayText(" card", 30, HEIGHT/4*3, (255, 255, 255))
+        print("Displaying Greeter...\n")
+        self.clearDisplay(color["blue"])
+        self.displayText("Hi", 50, HEIGHT/3*0,  color["black"])
+        self.displayText("Place Your", 10, HEIGHT/3*1,  color["black"])
+        self.displayText(" card", 30, HEIGHT/3*2,  color["black"])
         self.render()
 
     def attendanceDone(self, name):
-        print("Displaying Attendance Done...")
-        self.displayText("Hi ", 5, HEIGHT/6*1, (255, 255, 255))
-        self.displayText(str(name).split(" ")[0], 5, HEIGHT/6*2, (255, 255, 255))
-        self.displayText("Your", 5, HEIGHT/6*3, (255, 255, 255))
-        self.displayText("Attendance", 5, HEIGHT/6*4, (255, 255, 255))
-        self.displayText("Marked!", 5, HEIGHT/6*5, (255, 255, 255))
+        print("Displaying Attendance Done...\n")
+        self.clearDisplay(color["green"])
+        self.displayText("Hi ", 5, HEIGHT/5*0,  color["black"])
+        self.displayText(str(name).split(" ")[0], 5, HEIGHT/5*1,  color["black"])
+        self.displayText("Your", 5, HEIGHT/5*2,  color["black"])
+        self.displayText("Attendance", 5, HEIGHT/5*3,  color["black"])
+        self.displayText("Marked!", 5, HEIGHT/5*4,  color["black"])
 
     def InvalidCard(self):
-        print("Displaying Card Not Found...")
-        self.displayText("Invalid", 5, HEIGHT/3*1, (255, 255, 255))
-        self.displayText("Card !", 5, HEIGHT/3*2, (255, 255, 255))
+        print("Displaying Card Not Found...\n")
+        self.clearDisplay(color["red"])
+        self.displayText("Invalid", 5, HEIGHT/4*1,  color["black"])
+        self.displayText("Card !", 5, HEIGHT/4*2,  color["black"])
 
-    def attendanceAlready(self):
-        print("Displaying Card Already...")
-        self.displayText("Attendance", 5, HEIGHT/4*1, (255, 255, 255))
-        self.displayText("Already", 5, HEIGHT/4*2, (255, 255, 255))
-        self.displayText("Marked!", 5, HEIGHT/4*3, (255, 255, 255))
+    def attendanceAlready(self,name):
+        print("Displaying Card Already...\n")
+        self.clearDisplay(color["red"])
+        self.displayText((str(name).split(" ")[0])+"'s", 5, HEIGHT/4*0, color["black"])
+        self.displayText("Attendance", 5, HEIGHT/4*1, color["black"])
+        self.displayText("Already", 5, HEIGHT/4*2,  color["black"])
+        self.displayText("Marked!", 5, HEIGHT/4*3, color["black"])
 
     def connectionError(self):
-        print("Displaying Connection Error...")
-        self.displayText("Connection", 5, HEIGHT/4*1, (255, 255, 255))
-        self.displayText("Error!", 5, HEIGHT/4*2, (255, 255, 255))
-        self.displayText("Retrying...", 5, HEIGHT/4*3, (255, 255, 255))
+        print("Displaying Connection Error...\n")
+        self.clearDisplay(color["red"])
+        self.displayText("Connection", 5, HEIGHT/3*0,  color["black"])
+        self.displayText("Error!", 5, HEIGHT/3*1,  color["black"])
+        self.displayText("Retrying...", 5, HEIGHT/3*2, color["black"])
         self.render()

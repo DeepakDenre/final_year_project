@@ -16,8 +16,16 @@ SPI_DEVICE = 0
 SPEED_HZ = 15
 
 #Display Settings
-fontSize = 18
+fontSize = 24
 displayColor = (0,0,0)
+color={
+    "white":(255,255,255),
+    "black":(0,0,0),
+    "red":(255,0,0),
+    "green":(0,255,0),
+    "blue":(0,0,255)
+
+}
 
 # Card Database
 cardDatabase = {

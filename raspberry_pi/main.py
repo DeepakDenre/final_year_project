@@ -9,7 +9,7 @@ nfc = NFC.NFC()
 disp = Display.Display()
 
 disp.lodingScreen()
-mdb = MongoDB.MongoDB(dbHost, "userDB", "attendance", "students")
+mdb = MongoDB.MongoDB(dbHost, "userDB", "attendances", "students")
 
 
 if __name__ == "__main__":
@@ -43,7 +43,7 @@ if __name__ == "__main__":
                     else:
 
                         # Display the attendance already done
-                        disp.attendanceAlready()
+                        disp.attendanceAlready(name)
                 except Exception as e:
                     print(e)
             else:
