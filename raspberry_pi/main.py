@@ -16,7 +16,6 @@ if __name__ == "__main__":
     while running:
         try:
             while not mdb.checkConnection():
-                disp.clearDisplay(displayColor)
                 disp.connectionError()
                 sleep(5)
             # Display the greeter
